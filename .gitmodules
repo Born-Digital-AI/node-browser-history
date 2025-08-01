@@ -1,0 +1,3 @@
+[submodule "python-version"]
+	path = python-version
+	url = https://github.com/browser-history/browser-history.git
