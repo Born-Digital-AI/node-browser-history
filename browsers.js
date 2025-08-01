@@ -61,18 +61,9 @@ function findFilesInDir(startPath, filter, targetFile, depth = 0) {
             // console.log('-- found: ', filename);
             results.push(filename);
         }
-        /*
-        } else if (filename.indexOf(filter) >= 0 && regExp.test(filename)) {
-            results.push(filename);
-        } else if (filename.endsWith('\\History') === true) {
-            // console.log('-- found: ', filename);
-            results.push(filename);
-        }*/
     }
     return results;
 }
-
-
 
 /**
  * Finds the path to the browsers DB file.
@@ -101,8 +92,35 @@ function findPaths(path, browserName) {
     }
 }
 
+/**
+ * Finds bookmark files for supported browsers
+ * @param path
+ * @param browserName
+ * @returns {Array}
+ */
+function findBookmarkPaths(path, browserName) {
+    switch (browserName) {
+        case FIREFOX:
+        case SEAMONKEY:
+            // Firefox stores bookmarks in the same places.sqlite file as history
+            return findFilesInDir(path, ".sqlite", Path.sep + 'places.sqlite');
+        case CHROME:
+        case TORCH:
+        case OPERA:
+        case BRAVE:
+        case VIVALDI:
+        case EDGE:
+        case AVAST:
+            // Chrome-based browsers store bookmarks in JSON format
+            return findFilesInDir(path, "Bookmarks", Path.sep + 'Bookmarks');
+        default:
+            return [];
+    }
+}
+
 module.exports = {
     findPaths,
+    findBookmarkPaths,
     browserDbLocations,
     defaultPaths,
     CHROME,
@@ -116,4 +134,3 @@ module.exports = {
     EDGE,
     AVAST
 };
-
