@@ -4,7 +4,10 @@
   "description": "This application aims to retrieve browser history from all browsers on the user's computer. It will attempt to read from some common locations.",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "sync": "node scripts/sync-script.js",
+    "sync:dry-run": "node scripts/sync-script.js --dry-run",
+    "sync:force": "node scripts/sync-script.js --force"
   },
   "engine": {
     "node": "12"
@@ -33,6 +36,7 @@
   },
   "homepage": "https://github.com/MyOutDeskLLC/node-browser-history#readme",
   "dependencies": {
+    "dotenv": "17.2.1",
     "sqlite-async": "file:./lib/sqlite-async",
     "uuid": "8.3.2"
   }

@@ -180,25 +180,25 @@ function testMicrosoftEdgeOnly() {
 
 
 let tests = [
-    // testGetChromeOnly(),
-    // testFireFoxOnly(),
+    testGetChromeOnly(),
+    testFireFoxOnly(),
     // testBraveOnly(),
     // testOperaOnly(),
     // testSeaMonkeyOnly(),
     // testMaxthonOnly(),
     // testVivaldiOnly(),
     // testAvastOnly(),
-    // testMicrosoftEdgeOnly(),
+    testMicrosoftEdgeOnly(),
     // testSafariOnly(),
     // testTorchOnly(),
     testGetAllHistory(),
 ];
 
 Promise.all(tests).then(() => {
-    console.log("PASSING ALL TESTS");
+    console.log("✅ PASSING ALL TESTS");
     process.exit(0);
 }).catch(error => {
-    console.log('kasjdlasdjlaskdjalskdj')
+    console.log('❌ FAILING TESTS')
     console.log(error)
     process.exit(error);
 });
