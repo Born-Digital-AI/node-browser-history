@@ -4,7 +4,9 @@
   "description": "This application aims to retrieve browser history from all browsers on the user's computer. It will attempt to read from some common locations.",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js",
+    "test": "node test.js --cross-language",
+    "test:js": "node test.js --js-only",
+    "test:python": "node test.js --python-only",
     "sync": "node scripts/sync-script.js",
     "sync:dry-run": "node scripts/sync-script.js --dry-run",
     "sync:force": "node scripts/sync-script.js --force"
