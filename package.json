@@ -39,8 +39,7 @@
   "homepage": "https://github.com/MyOutDeskLLC/node-browser-history#readme",
   "dependencies": {
     "dotenv": "17.2.1",
-    "sqlite3": "5.1.7",
-    "sqlite-async": "file:./lib/sqlite-async",
+    "sqlite-async": "github:tance77/sqlite-async",
     "uuid": "8.3.2"
   }
 }
